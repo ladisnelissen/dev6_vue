@@ -21,7 +21,6 @@ onMounted(() => {
          for (let i = 0; i < data.length; i++) {
              comments.data.push(data[i].text);
          }
-
       })
    }) 
 
@@ -39,6 +38,8 @@ onMounted(() => {
 
 <style scoped>
       div {
-         padding: 0 2rem
+         padding: 0 2rem;
+         max-height: 600px;
+         overflow-y: scroll;
       }
 </style>

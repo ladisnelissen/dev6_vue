@@ -27,6 +27,7 @@ onMounted(() => {
 
 <style scoped>
     div {
-        padding: 0 2rem
+        padding: 0 2rem;
+        max-height: 150px;
     }
 </style>

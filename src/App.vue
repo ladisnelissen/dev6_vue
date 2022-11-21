@@ -8,8 +8,12 @@ import Comments from './components/Comments.vue';
 <template>
   <div class="app">
     <VideoPlayer />
-    <VideoDetails />
-    <Comments />
+    <div.sidebar>
+      <VideoDetails />
+      <Comments />
+    </div.sidebar>
+    
+   
   </div>
   
 </template>
@@ -17,6 +21,6 @@ import Comments from './components/Comments.vue';
 <style scoped>
 .app {
   display: grid;
-  grid-template-columns: 8fr 4fr;
+  grid-template-columns: 4fr 2fr;
 }
 </style>
