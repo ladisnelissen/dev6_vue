@@ -30,9 +30,11 @@ onMounted(() => {
 <template>
  <div>
       <Comment v-for="(user, index) in users.data" :key="index" :user="user">
-         <p>{{users.data[index]}}: {{comments.data[index]}}</p>
+         <h3>{{user}}</h3>
+         <p>{{comments.data[index]}}</p>
       </Comment>
 </div>
+
 </template>
 
 <style scoped>
