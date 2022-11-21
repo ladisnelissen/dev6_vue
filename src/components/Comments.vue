@@ -1,31 +1,42 @@
 <script setup>
 import { ref, onMounted, reactive } from 'vue';
-let user = ref("");
-let text = ref("");
 
+let users = reactive({
+    data: [],
+})
 
+let comments = reactive({
+    data: [],
+})
 
 onMounted(() => {
    fetch("https://lab5-p379.onrender.com/api/v1/messages/")
    .then(res => res.json())
    .then(data => {
-      user.value = data.user;
-      text.value = data.text;
+         //loop through data and get users
+         for (let i = 0; i < data.length; i++) {
+             users.data.push(data[i].user);
+         }
 
-      console.log(data[0].user);
-   })
- 
-   });
+         for (let i = 0; i < data.length; i++) {
+             comments.data.push(data[i].text);
+         }
+
+      })
+   }) 
 
 </script>
 
 <template>
  <div>
-    <h3>{{user}}</h3>
-    <p>{{text}}</p>
- </div>  
+      <Comment v-for="(user, index) in users.data" :key="index" :user="user">
+         <p>{{users.data[index]}}: {{comments.data[index]}}</p>
+      </Comment>
+</div>
 </template>
 
 <style scoped>
-
+      div {
+         padding: 0 2rem
+      }
 </style>
