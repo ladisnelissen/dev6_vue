@@ -18,7 +18,7 @@ onMounted(() => {
              users.data.push(data[i].user);
          }
 
-         for (let i = 0; i < data.length; i++) {
+         for (let i = data.length-1; i >= 0; i--) {
              comments.data.push(data[i].text);
          }
       })
@@ -44,6 +44,8 @@ onMounted(() => {
             console.log(data);
         })
     }
+
+
 </script>
 
 <template>

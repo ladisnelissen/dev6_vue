@@ -18,7 +18,7 @@ onMounted(() => {
              users.data.push(data[i].user);
          }
 
-         for (let i = 0; i < data.length; i++) {
+         for (let i = data.length-1; i >= 0; i--) {
              comments.data.push(data[i].text);
          }
       })
@@ -29,10 +29,11 @@ onMounted(() => {
 
 <template>
  <div>
-      <Comment v-for="(user, index) in users.data" :key="index" :user="user">
+      <Comment v-for="(user, index) in users.data.slice().reverse()" :key="index" :user="user">
          <h3>{{user}}</h3>
          <p>{{comments.data[index]}}</p>
       </Comment>
+
 </div>
 
 </template>
