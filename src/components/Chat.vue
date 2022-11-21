@@ -44,8 +44,6 @@ onMounted(() => {
             console.log(data);
         })
     }
-
-
 </script>
 
 <template>

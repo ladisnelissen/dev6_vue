@@ -33,7 +33,6 @@ onMounted(() => {
          <h3>{{user}}</h3>
          <p>{{comments.data[index]}}</p>
       </Comment>
-
 </div>
 
 </template>
