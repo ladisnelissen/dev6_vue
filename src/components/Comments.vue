@@ -24,6 +24,7 @@ onMounted(() => {
       })
    }) 
 
+
 </script>
 
 <template>
@@ -32,6 +33,7 @@ onMounted(() => {
          <h3>{{user}}</h3>
          <p>{{comments.data[index]}}</p>
       </Comment>
+
 </div>
 
 </template>
@@ -39,7 +41,7 @@ onMounted(() => {
 <style scoped>
       div {
          padding: 0 2rem;
-         max-height: 600px;
+         max-height: 450px;
          overflow-y: scroll;
       }
 </style>
