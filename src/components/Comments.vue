@@ -18,6 +18,11 @@ onMounted(() => {
    }) 
 
    const addComment = () => {
+    //push comments to the array
+    comments.data.push({
+        user: "Ladis",
+        text: comment.value,
+    })
     fetch(api, {
       method: 'POST',
       headers: {
