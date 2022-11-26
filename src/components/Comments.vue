@@ -18,21 +18,21 @@ onMounted(() => {
    }) 
 
    const addComment = () => {
-    comments.comment.push({
+    fetch(api, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
         user: "Ladis",
-        text: comment.value})
-
-    fetch(api_url, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-            body: JSON.stringify({
-            user: "Ladis",
-            text: comment.value,
-        }),
-    });
-        comment.value = "";
+        text: comment.value,
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      comments.data.push(data);
+      comment.value = '';
+    })
     };
 
 
@@ -55,7 +55,7 @@ onMounted(() => {
 <style scoped>
       div {
          padding: 0 2rem;
-         max-height: 50vh;
+         max-height: 70vh;
          overflow-y: scroll;
       }
 </style>
