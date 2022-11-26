@@ -5,6 +5,7 @@ let comments = reactive({
     data: [],
 })
 
+
 let api = 'https://lab5-p379.onrender.com/api/v1/messages/';
 
 onMounted(() => {
@@ -15,15 +16,34 @@ onMounted(() => {
       })
    }) 
 
+   const addComment = () => {
+    comments.comment.push({
+        user: "Ladis",
+        text: comment.value})
+
+    fetch(api_url, {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+            body: JSON.stringify({
+            user: "Ladis",
+            text: comment.value,
+        }),
+    });
+        comment.value = "";
+    };
+
 
 </script>
 
 <template>
  <div>
-      <Comment v-for="(user, index) in users.data.slice().reverse()" :key="index" :user="user">
-         <h3>{{user}}</h3>
-         <p>{{comments.data[index]}}</p>
-      </Comment>
+    <div v-for="comment in comments.data" :key="comment.id">
+        <h3>{{comment.user}}</h3>
+        <p>{{comment.text}}</p>
+    </div>
+    <button @click="addComment">Add Comment</button>
 
 </div>
 
