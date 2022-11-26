@@ -5,18 +5,13 @@ let comments = reactive({
     data: [],
 })
 
+let api = 'https://lab5-p379.onrender.com/api/v1/messages/';
+
 onMounted(() => {
-   fetch("https://lab5-p379.onrender.com/api/v1/messages/")
+   fetch(api)
    .then(res => res.json())
    .then(data => {
-         //loop through data and get users
-         for (let i = 0; i < data.length; i++) {
-             users.data.push(data[i].user);
-         }
-
-         for (let i = data.length-1; i >= 0; i--) {
-             comments.data.push(data[i].text);
-         }
+        comments.data = data;
       })
    }) 
 
