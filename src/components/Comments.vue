@@ -5,6 +5,7 @@ let comments = reactive({
     data: [],
 })
 
+let comment = ref('');
 
 let api = 'https://lab5-p379.onrender.com/api/v1/messages/';
 
@@ -39,7 +40,7 @@ onMounted(() => {
 
 <template>
  <div>
-    <div v-for="comment in comments.data" :key="comment.id">
+    <div v-for="comment in comments.data.slice().reverse()" :key="comment.id">
         <h3>{{comment.user}}</h3>
         <p>{{comment.text}}</p>
     </div>
