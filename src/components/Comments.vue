@@ -1,10 +1,6 @@
 <script setup>
 import { ref, onMounted, reactive } from 'vue';
 
-let users = reactive({
-    data: [],
-})
-
 let comments = reactive({
     data: [],
 })
