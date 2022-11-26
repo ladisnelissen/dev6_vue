@@ -12,8 +12,6 @@ import Comments from './components/Comments.vue';
       <VideoDetails />
       <Comments />
     </div.sidebar>
-    
-   
   </div>
   
 </template>

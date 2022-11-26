@@ -44,16 +44,18 @@ onMounted(() => {
         <h3>{{comment.user}}</h3>
         <p>{{comment.text}}</p>
     </div>
-    <button @click="addComment">Add Comment</button>
-
 </div>
+    <div>
+        <button @click="addComment">Add Comment</button>
+        <input type="text" v-model="comment" />
+    </div>
 
 </template>
 
 <style scoped>
       div {
          padding: 0 2rem;
-         max-height: 450px;
+         max-height: 50vh;
          overflow-y: scroll;
       }
 </style>
